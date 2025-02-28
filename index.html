@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Spotify</title>
+</head>
+<body>
+    <h2>Redirecting to Spotify...</h2>
+
+    <p>If you're not automatically redirected, please <a href="https://www.spotify.com">open Spotify</a> manually.</p>
+
+    <script>
+        // Predefined Spotify deep link (replace with the actual track URI)
+        const spotifyDeepLink = "spotify:track:4ni6H1FJ7YctnKtnZmaCbD?si=ce3becfd1e7d41a6"; // Example track ID
+
+        // Function to redirect immediately to the Spotify deep link
+        function redirectToSpotify() {
+            // Attempt to redirect to the Spotify app using the deep link
+            window.location.href = spotifyDeepLink;
+
+            // Fallback: If Spotify is not installed, redirect to a web version of the track
+            setTimeout(() => {
+                window.location.href = "https://open.spotify.com/track/4ni6H1FJ7YctnKtnZmaCbD?si=57eb7d4b245345ab"; // Web version of the track
+            }, 5000);  // Timeout after 2 seconds if the app is not opened
+        }
+
+        // Automatically redirect when the page loads
+        redirectToSpotify();
+    </script>
+</body>
+</html>
